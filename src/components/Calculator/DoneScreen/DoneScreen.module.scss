@@ -1,0 +1,21 @@
+.DoneScreen {
+  padding: clamp(16px, 2.5vw, 24px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass);
+  backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: var(--shadow-1);
+}
+
+.heading {
+  font-weight: 800;
+  text-transform: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: "Unbounded", system-ui, sans-serif;
+}
+
+.description {
+  margin-top: 16px;
+}

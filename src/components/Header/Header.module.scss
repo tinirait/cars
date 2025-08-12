@@ -1,0 +1,124 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  backdrop-filter: saturate(140%) blur(10px);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 12, 0.75) 0%,
+    rgba(10, 10, 12, 0.55) 100%
+  );
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(10px, 2.5vw, 14px) clamp(16px, 4vw, 32px);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  color: var(--text);
+}
+
+.logo_wrapper {
+  width: 48px;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: clamp(12px, 2.2vw, 24px);
+}
+
+.contacts {
+  display: flex;
+  gap: clamp(10px, 1.8vw, 20px) clamp(12px, 2.2vw, 24px);
+  font-size: clamp(14px, 1.2vw + 6px, 16px);
+}
+
+.contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    color: var(--accent-2);
+  }
+}
+
+.contact_icon {
+  width: 20px;
+  height: 20px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0b0c10;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(248, 199, 35, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(248, 199, 35, 0.35);
+  }
+}
+
+.email {
+  @media (max-width: 700px) {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .logo_wrapper {
+    width: 44px;
+  }
+}
+
+@media (max-width: 900px) {
+  .logo_wrapper {
+    width: 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .logo_wrapper {
+    width: 36px;
+  }
+  .contacts {
+    gap: 10px 14px;
+  }
+}
+
+/* Stretch header content to screen edges (with safe paddings) on very wide screens */
+@media (min-width: 1300px) {
+  .inner {
+    max-width: none;
+    width: 100%;
+    padding-left: clamp(24px, 4vw, 48px);
+    padding-right: clamp(24px, 4vw, 48px);
+  }
+}

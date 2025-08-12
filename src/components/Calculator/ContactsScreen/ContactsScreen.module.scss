@@ -1,0 +1,67 @@
+.ContactsScreen {
+  padding: clamp(16px, 2.5vw, 24px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass);
+  backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: var(--shadow-1);
+}
+
+.heading {
+  text-align: center;
+  font-weight: 800;
+  text-transform: none;
+  font-family: "Unbounded", system-ui, sans-serif;
+}
+
+.textInputWrapper {
+  margin-top: 16px;
+  display: grid;
+  place-items: center;
+  gap: 6px;
+}
+
+.email {
+  margin-top: 24px;
+}
+
+.textInput {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  outline: none;
+  flex: 1;
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid var(--glass-border);
+  transition: 0.2s ease;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+
+  &:focus {
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.submit_button {
+  padding: 12px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0b0c10;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
