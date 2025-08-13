@@ -4,17 +4,16 @@
   border-radius: var(--radius-xl);
   background: var(--gradient-surface);
   backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 
-    var(--shadow-1),
-    0 0 40px rgba(248, 199, 35, 0.08);
+  box-shadow: var(--shadow-1), 0 0 40px rgba(248, 199, 35, 0.08);
   transition: all var(--transition-normal);
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: fit-content;
 }
 
 .Calculator:hover {
   border-color: rgba(248, 199, 35, 0.2);
-  box-shadow: 
-    var(--shadow-2),
-    0 0 60px rgba(248, 199, 35, 0.12);
+  box-shadow: var(--shadow-2), 0 0 60px rgba(248, 199, 35, 0.12);
 }
 
 .heading {
@@ -37,6 +36,16 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 
+  @media (min-width: 1420px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 1419px) {
+    grid-template-columns: 1fr; /* Переходим в одну колонку от 1000px до 1420px */
+    gap: 16px;
+  }
+
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -49,6 +58,16 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 
+  @media (min-width: 1420px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 1419px) {
+    grid-template-columns: 1fr; /* Переходим в одну колонку от 1000px до 1420px */
+    gap: 16px;
+  }
+
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -60,6 +79,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+
+  @media (min-width: 1420px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 1419px) {
+    grid-template-columns: 1fr; /* Переходим в одну колонку от 1000px до 1420px */
+    gap: 20px;
+  }
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
@@ -103,7 +132,7 @@
   }
 
   &__option::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -136,9 +165,24 @@
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 
-  @media (max-width: 700px) {
+  @media (min-width: 1420px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  @media (max-width: 1419px) {
+    grid-template-columns: 1fr; /* Переходим в одну колонку от 1000px до 1420px */
+    gap: 20px;
+  }
+
+  @media (max-width: 1000px) {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   & > div {
@@ -147,6 +191,8 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-lg);
     transition: all var(--transition-normal);
+    min-width: 0; /* Предотвращает выход за границы */
+    overflow: hidden; /* Скрывает содержимое, выходящее за границы */
   }
 
   & > div:hover {
@@ -184,24 +230,60 @@
 
   &__calendar_wrapper {
     display: flex;
-    margin-top: 12px;
+    // margin-top: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+    min-width: 0; /* Предотвращает выход за границы */
+    overflow: hidden; /* Скрывает содержимое, выходящее за границы */
+  }
+
+  &__calendar_wrapper:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(0, 212, 255, 0.15);
   }
 
   &_calendar {
     max-height: 40px;
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
     color: var(--text);
     padding: 8px 12px;
     font-size: 14px;
+    font-weight: 500;
     transition: all var(--transition-normal);
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    min-width: 0; /* Предотвращает выход за границы */
+    flex-shrink: 1; /* Позволяет сжиматься */
+  }
+
+  &_calendar:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
   }
 
   &_calendar:focus {
     outline: none;
     border-color: var(--accent-4);
     box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &_calendar::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.8);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    flex-shrink: 0; /* Иконка календаря не сжимается */
+  }
+
+  &_calendar::-webkit-calendar-picker-indicator:hover {
+    filter: invert(1) brightness(1);
+    transform: scale(1.1);
   }
 }
 
@@ -273,16 +355,16 @@
   .rs__indicator-separator {
     display: none;
   }
-  
+
   .rs__dropdown-indicator {
     color: var(--muted);
     transition: transform var(--transition-normal);
   }
-  
+
   .rs__control--menu-is-open .rs__dropdown-indicator {
     transform: rotate(180deg);
   }
-  
+
   .rs__input {
     color: var(--text);
   }
@@ -292,6 +374,10 @@
   display: flex;
   justify-content: center;
   margin-top: 32px;
+
+  @media (max-width: 1419px) {
+    margin-top: 32px; /* Сохраняем стандартный margin до 1420px */
+  }
 
   &__calculate_button {
     padding: 16px 32px;
@@ -304,16 +390,27 @@
     font-weight: 900;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    box-shadow: 
-      0 8px 25px rgba(248, 199, 35, 0.3),
+    box-shadow: 0 8px 25px rgba(248, 199, 35, 0.3),
       0 0 0 1px rgba(248, 199, 35, 0.2);
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
     min-width: 200px;
 
+    @media (max-width: 1419px) {
+      padding: 16px 32px; /* Сохраняем стандартный padding до 1420px */
+      font-size: 16px; /* Сохраняем стандартный размер шрифта до 1420px */
+      min-width: 200px; /* Сохраняем стандартную ширину до 1420px */
+    }
+
+    @media (max-width: 600px) {
+      padding: 12px 24px;
+      font-size: 14px;
+      min-width: 160px;
+    }
+
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: -100%;
@@ -330,19 +427,12 @@
 
     &:hover {
       transform: translateY(-3px);
-      box-shadow: 
-        0 12px 35px rgba(248, 199, 35, 0.4),
+      box-shadow: 0 12px 35px rgba(248, 199, 35, 0.4),
         0 0 0 1px rgba(248, 199, 35, 0.3);
     }
 
     &:active {
       transform: translateY(-1px);
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      opacity: 0.6;
-      transform: none;
     }
   }
 }
@@ -360,6 +450,18 @@
   font-weight: 600;
   color: var(--text);
   transition: all var(--transition-normal);
+
+  @media (max-width: 1419px) {
+    padding: 20px; /* Сохраняем стандартный padding до 1420px */
+    font-size: 18px; /* Сохраняем стандартный размер шрифта до 1420px */
+    gap: 12px; /* Сохраняем стандартный gap до 1420px */
+  }
+
+  @media (max-width: 600px) {
+    padding: 16px;
+    font-size: 15px;
+    gap: 8px;
+  }
 }
 
 .price:hover {
@@ -376,6 +478,14 @@
 .price > div:first-child {
   color: var(--muted);
   font-size: 16px;
+
+  @media (max-width: 1419px) {
+    font-size: 16px; /* Сохраняем стандартный размер шрифта до 1420px */
+  }
+
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
 }
 
 .price > div:last-child {
@@ -384,12 +494,25 @@
   font-weight: 800;
   background: rgba(248, 199, 35, 0.1);
   border: 1px solid rgba(248, 199, 35, 0.2);
+
+  @media (max-width: 1419px) {
+    font-size: 20px; /* Сохраняем стандартный размер шрифта до 1420px */
+  }
+
+  @media (max-width: 600px) {
+    font-size: 16px;
+  }
 }
 
 .route_map_section {
   margin-top: 32px;
   padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 1419px) {
+    margin-top: 32px; /* Сохраняем стандартный margin до 1420px */
+    padding-top: 24px; /* Сохраняем стандартный padding до 1420px */
+  }
 }
 
 .route_map_heading {
@@ -402,4 +525,9 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: 1419px) {
+    font-size: 20px; /* Сохраняем стандартный размер шрифта до 1420px */
+    margin-bottom: 20px; /* Сохраняем стандартный margin до 1420px */
+  }
 }
