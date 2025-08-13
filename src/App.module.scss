@@ -76,22 +76,72 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar for all screen sizes */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--surface);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--gradient-primary);
-  border-radius: 4px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: all var(--transition-normal);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gradient-accent);
+  transform: scale(1.05);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--accent);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox support for all screen sizes */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) rgba(0, 0, 0, 0.3);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) rgba(0, 0, 0, 0.3);
+}
+
+/* Custom scrollbar for specific elements */
+.scrollable-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) rgba(0, 0, 0, 0.3);
+}
+
+.scrollable-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+  transition: all var(--transition-normal);
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-2);
+  transform: scale(1.1);
 }
 
 /* Selection styles */
