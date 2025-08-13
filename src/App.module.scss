@@ -17,15 +17,41 @@ html {
   --accent: #f8c723;
   --accent-2: #ff9d2f;
   --accent-3: #ff512f;
+  --accent-4: #00d4ff;
+  --accent-5: #7c3aed;
   --card: rgba(255, 255, 255, 0.06);
   --glass: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
   --shadow-1: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --shadow-3: 0 0 40px rgba(248, 199, 35, 0.15);
   --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  /* New gradient variables */
+  --gradient-primary: linear-gradient(135deg, var(--accent), var(--accent-2));
+  --gradient-secondary: linear-gradient(
+    135deg,
+    var(--accent-4),
+    var(--accent-5)
+  );
+  --gradient-accent: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+  --gradient-surface: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+
+  /* Animation variables */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 body {
-  font-family: "Manrope", Arial, Helvetica, sans-serif;
+  font-family: "Manrope", "Inter", Arial, Helvetica, sans-serif;
   font-size: clamp(15px, 0.9vw, 18px);
   background: radial-gradient(
       1200px 800px at 10% -10%,
@@ -37,14 +63,129 @@ body {
       rgba(255, 157, 47, 0.08),
       transparent
     ),
+    radial-gradient(
+      800px 600px at 50% 50%,
+      rgba(0, 212, 255, 0.05),
+      transparent
+    ),
     var(--bg);
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-accent);
+}
+
+/* Selection styles */
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+::-moz-selection {
+  background: var(--accent);
+  color: var(--bg);
 }
 
 .app {
   position: relative;
   min-height: 100vh;
+}
+
+/* Global container styles for wide screens */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3.6vw, 48px);
+}
+
+/* Растягиваем контент на очень широких экранах */
+@media (min-width: 1400px) {
+  .container {
+    max-width: none;
+    width: 100%;
+    padding-left: clamp(24px, 4vw, 64px);
+    padding-right: clamp(24px, 4vw, 64px);
+  }
+}
+
+/* Global animation classes */
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.6s var(--bounce);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+}
+
+.hover-glow {
+  transition: box-shadow var(--transition-normal);
+}
+
+.hover-glow:hover {
+  box-shadow: var(--shadow-3);
 }

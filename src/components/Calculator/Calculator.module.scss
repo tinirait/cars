@@ -1,124 +1,238 @@
 .Calculator {
-  padding: clamp(16px, 2.5vw, 24px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  background: var(--glass);
-  backdrop-filter: blur(12px) saturate(140%);
-  box-shadow: var(--shadow-1);
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-xl);
+  background: var(--gradient-surface);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 
+    var(--shadow-1),
+    0 0 40px rgba(248, 199, 35, 0.08);
+  transition: all var(--transition-normal);
+}
+
+.Calculator:hover {
+  border-color: rgba(248, 199, 35, 0.2);
+  box-shadow: 
+    var(--shadow-2),
+    0 0 60px rgba(248, 199, 35, 0.12);
 }
 
 .heading {
   text-align: center;
-  font-weight: 800;
-  text-transform: none;
-  font-family: "Unbounded", system-ui, sans-serif;
-  font-size: clamp(24px, 2vw + 8px, 42px);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: "Unbounded", "Orbitron", system-ui, sans-serif;
+  font-size: clamp(26px, 2.5vw + 10px, 44px);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
 }
 
 .cities {
-  margin-top: 16px;
+  margin-top: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 20px;
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
 .car_details {
-  margin-top: 16px;
+  margin-top: 24px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
 
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
 .transportation_details {
-  margin-top: 20px;
+  margin-top: 28px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 24px;
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  & > div {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+  }
+
+  & > div:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(248, 199, 35, 0.2);
   }
 
   &__options {
     display: flex;
     gap: 12px;
-    margin-top: 6px;
+    margin-top: 12px;
+    flex-wrap: wrap;
   }
 
   &__option {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     cursor: pointer;
-    padding: 8px 10px;
-    border-radius: 10px;
-    border: 1px solid var(--glass-border);
-    background: rgba(255, 255, 255, 0.06);
+    padding: 10px 14px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--muted);
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    transition: left var(--transition-slow);
+    z-index: -1;
+  }
+
+  &__option:hover::before {
+    left: 0;
+  }
+
+  &__option:hover {
+    color: var(--bg);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  &__option input[type="radio"] {
+    accent-color: var(--accent);
+    transform: scale(1.2);
   }
 }
 
 .shippingDate {
-  margin-top: 20px;
+  margin-top: 28px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 24px;
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  & > div {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+  }
+
+  & > div:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 212, 255, 0.2);
   }
 
   &__options {
-    margin-top: 6px;
+    margin-top: 12px;
     display: grid;
-    gap: 6px;
+    gap: 8px;
   }
 
   &__option {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all var(--transition-normal);
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  &__option:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  &__option input[type="radio"] {
+    accent-color: var(--accent-4);
+    transform: scale(1.2);
   }
 
   &__calendar_wrapper {
     display: flex;
+    margin-top: 12px;
   }
 
   &_calendar {
-    max-height: 32px;
-    border-radius: 10px;
-    border: 1px solid var(--glass-border);
-    background: rgba(255, 255, 255, 0.06);
+    max-height: 40px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     color: var(--text);
-    padding: 6px 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: all var(--transition-normal);
+  }
+
+  &_calendar:focus {
+    outline: none;
+    border-color: var(--accent-4);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
   }
 }
 
 /* react-select theme overrides */
 .select {
-  font-size: clamp(14px, 0.8vw, 16px);
+  font-size: clamp(14px, 0.9vw, 16px);
   line-height: 1.5;
   color: var(--text);
 
   .rs__control {
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     background: rgba(255, 255, 255, 0.08);
     color: var(--text);
-    border-radius: 12px;
-    min-height: clamp(42px, 2.8vw, 52px);
+    border-radius: var(--radius-lg);
+    min-height: clamp(44px, 3vw, 56px);
     box-shadow: none;
+    transition: all var(--transition-normal);
+  }
+
+  .rs__control:hover {
+    border-color: rgba(248, 199, 35, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .rs__control--is-focused {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(248, 199, 35, 0.1);
   }
 
   .rs__value-container {
-    padding: clamp(6px, 0.6vw, 10px) clamp(10px, 0.9vw, 14px);
+    padding: clamp(8px, 0.8vw, 12px) clamp(12px, 1vw, 16px);
   }
 
   .rs__single-value,
@@ -130,36 +244,45 @@
 
   .rs__menu {
     background: var(--surface);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-lg);
     overflow: hidden;
     margin-top: 8px;
-    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.35);
-    font-size: clamp(14px, 0.85vw, 16px);
+    box-shadow: var(--shadow-2);
+    font-size: clamp(14px, 0.9vw, 16px);
   }
 
   .rs__option {
     background: transparent;
     color: var(--text);
-    padding: clamp(8px, 0.7vw, 12px) clamp(10px, 0.9vw, 14px);
+    padding: clamp(10px, 0.9vw, 14px) clamp(12px, 1vw, 16px);
     font-weight: 600;
+    transition: all var(--transition-normal);
 
     &--is-focused {
       background: rgba(255, 255, 255, 0.08);
     }
 
     &--is-selected {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #0b0c10;
+      background: var(--gradient-primary);
+      color: var(--bg);
+      font-weight: 800;
     }
   }
 
   .rs__indicator-separator {
     display: none;
   }
+  
   .rs__dropdown-indicator {
     color: var(--muted);
+    transition: transform var(--transition-normal);
   }
+  
+  .rs__control--menu-is-open .rs__dropdown-indicator {
+    transform: rotate(180deg);
+  }
+  
   .rs__input {
     color: var(--text);
   }
@@ -168,30 +291,115 @@
 .calculatePrice {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 32px;
 
   &__calculate_button {
-    padding: 12px 18px;
-    font-size: 14px;
+    padding: 16px 32px;
+    font-size: 16px;
     cursor: pointer;
-    border-radius: 12px;
-    border: 1px solid var(--glass-border);
-    background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #0b0c10;
-    font-weight: 800;
-    letter-spacing: 0.2px;
-    box-shadow: 0 10px 24px rgba(248, 199, 35, 0.25);
+    border-radius: var(--radius-xl);
+    border: none;
+    background: var(--gradient-primary);
+    color: var(--bg);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 
+      0 8px 25px rgba(248, 199, 35, 0.3),
+      0 0 0 1px rgba(248, 199, 35, 0.2);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-accent);
+      transition: left var(--transition-slow);
+      z-index: -1;
+    }
+
+    &:hover::before {
+      left: 0;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        0 12px 35px rgba(248, 199, 35, 0.4),
+        0 0 0 1px rgba(248, 199, 35, 0.3);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
 
     &:disabled {
       cursor: not-allowed;
       opacity: 0.6;
+      transform: none;
     }
   }
 }
 
 .price {
-  margin-top: 12px;
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
   font-size: 18px;
   display: grid;
-  gap: 6px;
+  gap: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text);
+  transition: all var(--transition-normal);
+}
+
+.price:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(248, 199, 35, 0.2);
+}
+
+.price > div {
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.price > div:first-child {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.price > div:last-child {
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: 800;
+  background: rgba(248, 199, 35, 0.1);
+  border: 1px solid rgba(248, 199, 35, 0.2);
+}
+
+.route_map_section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.route_map_heading {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

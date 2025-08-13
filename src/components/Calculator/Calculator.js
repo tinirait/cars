@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styles from './Calculator.module.scss'
 import ContactsScreen from './ContactsScreen'
 import DoneScreen from './DoneScreen'
+import RouteMap from '../RouteMap'
 import { getCalculation, getCities, getCarMakes, getCarModels, createOrderRequest } from './functions'
 import Select from 'react-select'
 
@@ -528,23 +529,49 @@ function Calculator() {
 
       <div className={styles.price}>
         {priceIsLoading && (
-          <div>
-            Loading...
+          <div className={styles.price_loading}>
+            <div className={styles.loading_spinner}></div>
+            <span>Calculating your price...</span>
           </div>
         )}
 
         {price !== null && (
-          <div>
-            <div>
-              Regular price: ${Math.floor(price)}
+          <div className={styles.price_display}>
+            <div className={styles.price_regular}>
+              <span className={styles.price_label}>Regular price:</span>
+              <span className={styles.price_value}>${Math.floor(price)}</span>
             </div>
+            <div className={styles.price_discounted}>
+              <span className={styles.price_label}>Discounted cash price:</span>
+              <span className={styles.price_value}>${Math.floor(price * 0.95)}</span>
+              <span className={styles.discount_badge}>Save 5%</span>
+            </div>
+          </div>
+        )}
 
-            <div>
-              Dscounted cash price: ${Math.floor(price * 0.95)}
+        {!priceIsLoading && price === null && (
+          <div className={styles.price_placeholder}>
+            <div className={styles.placeholder_icon}>💰</div>
+            <div className={styles.placeholder_text}>
+              <span className={styles.placeholder_title}>Get Your Quote</span>
+              <span className={styles.placeholder_subtitle}>
+                Fill in the details above and click "CALCULATE PRICE" to see your instant quote
+              </span>
             </div>
           </div>
         )}
       </div>
+
+      {/* Route Map */}
+      {selectedCityFrom && selectedCityTo && (
+        <div className={styles.route_map_section}>
+          <h3 className={styles.route_map_heading}>Your Route</h3>
+          <RouteMap
+            fromCity={selectedCityFrom.label}
+            toCity={selectedCityTo.label}
+          />
+        </div>
+      )}
     </div>
   )
 }
