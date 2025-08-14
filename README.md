@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# CAR HAVEN TRANSPORT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Your trusted partner in safe and reliable car transportation across the United States.
 
-## Available Scripts
+## 🚛 About
 
-In the project directory, you can run:
+CAR HAVEN TRANSPORT is a professional car transportation company that provides reliable, safe, and efficient vehicle shipping services across the United States. We specialize in both open and enclosed transport options, ensuring your vehicle arrives at its destination in perfect condition.
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Nationwide Coverage** - We serve all 50 states
+- **Fast & Secure** - Professional drivers and modern equipment
+- **Best Prices** - Competitive rates and transparent pricing
+- **Multiple Transport Options** - Open and enclosed trailers
+- **Instant Quotes** - Get pricing in seconds with our calculator
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Technology
 
-### `npm test`
+This project is built with:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React 18
+- SCSS Modules
+- Responsive Design
+- Modern CSS Features
+- GitHub Pages Deployment
 
-### `npm run build`
+## 🚀 Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v14 or higher)
+- npm or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+```bash
+# Clone the repository
+git clone https://github.com/tinirait/cars.git
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Navigate to project directory
+cd cars
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Install dependencies
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Start development server
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Build and Deploy
 
-## Learn More
+```bash
+# Build for production
+npm run build
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Deploy to GitHub Pages
+npm run deploy
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 Responsive Design
 
-### Code Splitting
+The website is fully responsive and optimized for:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Desktop computers
+- Tablets
+- Mobile devices
+- All modern browsers
 
-### Analyzing the Bundle Size
+## 🎨 Design Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Dark theme with yellow accents
+- Smooth animations and transitions
+- Custom scrollbar styling
+- Modern gradient effects
+- Professional typography
 
-### Making a Progressive Web App
+## 📞 Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Phone:** 123-456-7890
+- **Email:** info@carhaventransport.com
+- **Website:** [carhaventransport.com](https://carhaventransport.com)
 
-### Advanced Configuration
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project is private and proprietary. All rights reserved.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Built with ❤️ by CAR HAVEN TRANSPORT team

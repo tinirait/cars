@@ -20,35 +20,35 @@ function Header() {
     <header className={cn(styles.Header, { [styles.scrolled]: isScrolled })}>
       <div className={styles.inner}>
         <div className={cn(styles.logo_wrapper, 'hover-lift')}>
-          <img src={logo} className={styles.logo} alt="HORNS & HOOVES logistics" />
+          <img src={logo} className={styles.logo} alt="CAR HAVEN TRANSPORT" />
         </div>
 
         <nav className={styles.actions}>
           <div className={styles.contacts}>
-            <a 
-              className={cn(styles.contact, 'hover-glow')} 
-              href="tel:1234567890" 
+            <a
+              className={cn(styles.contact, 'hover-glow')}
+              href="tel:1234567890"
               aria-label="Call us"
             >
-              <AnimatedIcon 
-                icon="📞" 
-                size="small" 
-                color="primary" 
+              <AnimatedIcon
+                icon="📞"
+                size="small"
+                color="primary"
                 animation="pulse"
                 className={styles.contact_icon}
               />
               <span className={styles.contact_text}>123-456-7890</span>
             </a>
 
-            <a 
-              className={cn(styles.contact, styles.email, 'hover-glow')} 
-              href="mailto:info@hornsandhooves.com" 
+            <a
+              className={cn(styles.contact, styles.email, 'hover-glow')}
+              href="mailto:info@hornsandhooves.com"
               aria-label="Email us"
             >
-              <AnimatedIcon 
-                icon="✉️" 
-                size="small" 
-                color="secondary" 
+              <AnimatedIcon
+                icon="✉️"
+                size="small"
+                color="secondary"
                 animation="float"
                 className={styles.contact_icon}
               />

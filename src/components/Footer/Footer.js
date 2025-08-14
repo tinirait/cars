@@ -17,8 +17,10 @@ function Footer() {
           {/* Company Info */}
           <div className={styles.footer_section}>
             <div className={styles.company_info}>
-              <h3 className={styles.company_name}>HORNS & HOOVES</h3>
-              <p className={styles.company_tagline}>Your reliable partner in car transportation</p>
+              <h3 className={styles.company_name}>CAR HAVEN TRANSPORT</h3>
+              <p className={styles.company_description}>
+                Your trusted partner in safe and reliable car transportation across the United States.
+              </p>
               <div className={styles.company_features}>
                 <div className={styles.feature}>
                   <AnimatedIcon icon="🚛" size="small" color="primary" animation="pulse" />
@@ -82,7 +84,7 @@ function Footer() {
         {/* Bottom Bar */}
         <div className={styles.bottom_bar}>
           <div className={styles.copyright}>
-            <p>© {currentYear} HORNS & HOOVES logistics. All rights reserved.</p>
+            <p>© {currentYear} CAR HAVEN TRANSPORT. All rights reserved.</p>
           </div>
           <div className={styles.social_links}>
             <a href="#" className={styles.social_link} aria-label="Facebook">

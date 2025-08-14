@@ -45,7 +45,7 @@ function Promo() {
       <div className={styles.content}>
         <div className={cn(styles.company_info, { [styles.visible]: isVisible })}>
           <h1 className={styles.heading}>
-            <span className={styles.heading_main}>HORNS & HOOVES</span>
+            <span className={styles.heading_main}>CAR HAVEN TRANSPORT</span>
             <span className={styles.heading_sub}>logistics</span>
           </h1>
 
